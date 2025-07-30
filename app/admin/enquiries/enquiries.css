@@ -1,0 +1,44 @@
+.admin-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.enq-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.enq-table th,
+.enq-table td {
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.enq-table th {
+  background-color: #006064;
+  color: #fff;
+}
+
+.enq-table tbody tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+.btn-view {
+  background-color: #00897b;
+  border: none;
+  color: #fff;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.btn-view:hover {
+  background-color: #00695c;
+}
+
+.error {
+  color: #d32f2f;
+}
