@@ -21,24 +21,18 @@ public class Payment {
     @Column(name = "amount")
     private Double amount;
 
-    /**
-     * Many payments belong to one student.
-     */
+
     @ManyToOne
     @JoinColumn(name = "student_id", referencedColumnName = "student_id")
-    @JsonBackReference // Prevents infinite recursion during JSON serialization
+    @JsonBackReference
     private Student student;
 
-    /**
-     * Many payments belong to one payment type (like Cash, UPI, etc).
-     */
+
     @ManyToOne
     @JoinColumn(name = "payment_type_id", referencedColumnName = "payment_type_id")
     private PaymentTypeMaster paymentType;
 
-    /**
-     * One payment has one receipt.
-     */
+
     @OneToOne(mappedBy = "payment", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private Receipt receipt;
