@@ -1,0 +1,444 @@
+--------------------------------------------
+--------------------------------------------------------------------------------------
+version4
+
+
+-- 1. Create new database
+CREATE DATABASE version4;
+
+
+-- 4. Copy course table
+CREATE TABLE version4.course LIKE version3.course;
+INSERT INTO version4.course SELECT * FROM version3.course;
+
+-- 2. Copy batch table
+CREATE TABLE version4.batch LIKE version3.batch;
+INSERT INTO version4.batch SELECT * FROM version3.batch;
+
+-- 7. Copy recruiter table
+CREATE TABLE version4.recruiter LIKE version3.recruiter;
+INSERT INTO version4.recruiter SELECT * FROM version3.recruiter;
+
+-- 6. Copy placement table
+CREATE TABLE version4.placement LIKE version3.placement;
+INSERT INTO version4.placement SELECT * FROM version3.placement;
+
+
+------------------------
+POST: http://localhost:8080/api/staff
+{
+  "staffName": "Abhishek Karmore",
+  "photoUrl": "/students/dac_March24/ABHISHEK KARMORE_SMVITA.jpg",
+  "staffMobile": "9876543210",
+  "staffEmail": "abhishek.karmore@example.com",
+  "staffUsername": "abhishek.karmore@example.com",
+  "staffPassword": "passKarmore123",
+  "staffRole": "Teaching Staff"
+}
+POST: http://localhost:8080/api/staff
+{
+  "staffName": "Abhishek Shelke",
+  "photoUrl": "/students/dac_March24/ABHISHEK SHELKE_SMVITA.jpg",
+  "staffMobile": "9123456780",
+  "staffEmail": "abhishek.shelke@example.com",
+  "staffUsername": "abhishek.shelke@example.com",
+  "staffPassword": "passShelke123",
+  "staffRole": "Non Teaching"
+}
+---------------------
+
+
+
+
+
+-- 3. Copy closure_reason table
+CREATE TABLE version4.closure_reason LIKE version3.closure_reason;
+INSERT INTO version4.closure_reason SELECT * FROM version3.closure_reason;
+
+-- 5. Copy enquiry table
+CREATE TABLE version4.enquiry LIKE version3.enquiry;
+INSERT INTO version4.enquiry SELECT * FROM version3.enquiry;
+
+
+-- 8. Copy student table
+CREATE TABLE version4.student LIKE version3.student;
+INSERT INTO version4.student SELECT * FROM version3.student;
+
+
+-- 9. insert into payments type table
+
+INSERT INTO payment_type_master (payment_type_desc) VALUES ('Cash');
+INSERT INTO payment_type_master (payment_type_desc) VALUES ('Credit Card');
+INSERT INTO payment_type_master (payment_type_desc) VALUES ('Debit Card');
+INSERT INTO payment_type_master (payment_type_desc) VALUES ('UPI');
+INSERT INTO payment_type_master (payment_type_desc) VALUES ('Bank Transfer');
+INSERT INTO payment_type_master (payment_type_desc) VALUES ('Cheque');
+
+//docker 
+before build
+mvn clean package -DskipTests
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------
+
+yash db newcomputerseekhodb
+
+CREATE TABLE staff (
+    staff_id INT PRIMARY KEY AUTO_INCREMENT,
+    staff_name VARCHAR(100) NOT NULL,
+    staff_username VARCHAR(50) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    staff_email VARCHAR(100) UNIQUE NOT NULL,
+    staff_photo_url VARCHAR(255),
+    staff_role_id INT NOT NULL,
+    last_login DATETIME,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE staff_role (
+    staff_role_id INT PRIMARY KEY AUTO_INCREMENT,
+    role_name VARCHAR(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE enquiry (
+    enquiry_id INT PRIMARY KEY AUTO_INCREMENT,
+    staff_id INT NOT NULL,
+    course_id INT,
+    
+    -- Enquirer info
+    inquirer_name VARCHAR(100) NOT NULL,
+    inquirer_relation ENUM('parent','guardian','self','other'),
+    enquiry_address TEXT,
+    inquirer_email VARCHAR(100),
+    
+    -- Student info (filled if known at enquiry stage)
+    student_name VARCHAR(100),
+    student_age INT,
+    student_dob DATE,
+    student_email VARCHAR(100),
+    student_course_interest_id INT,
+    
+    -- Inquiry details
+    enquiry_query TEXT,
+    status ENUM('open','closed','registered') DEFAULT 'open',
+    closure_reason_id INT,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+ALTER TABLE enquiry
+ADD COLUMN student_photo_url VARCHAR(255) AFTER student_email;
+
+
+--------------------------- Key Points ------------------------------
+student_course_interest_id lets you store which course the student is interested in (can be same as course_id or different).
+
+When inquirer_relation = 'self', student_* columns can be auto-filled from the inquirer columns in your backend logic.
+
+When status = "registered", you INSERT into student table:
+
+INSERT INTO student (enquiry_id, student_name, age, dob, email, course_id)
+SELECT enquiry_id, student_name, student_age, student_dob, student_email, student_course_interest_id
+FROM enquiry
+WHERE enquiry_id = ?;
+--------------------------- Key Points ------------------------------
+
+CREATE TABLE closure_reason (
+    closure_reason_id INT PRIMARY KEY AUTO_INCREMENT,
+    reason_text VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE follow_up (
+    followup_id INT PRIMARY KEY AUTO_INCREMENT,
+    enquiry_id INT NOT NULL,
+    followup_date DATETIME NOT NULL,
+    notes TEXT,
+    status ENUM('pending','completed') DEFAULT 'pending',
+ 
+);
+CREATE TABLE student (
+    student_id INT PRIMARY KEY AUTO_INCREMENT,
+    enquiry_id INT UNIQUE, 
+    student_name VARCHAR(100) NOT NULL,
+    student_photo_url VARCHAR(255),
+    age INT,
+    dob DATE,
+    email VARCHAR(100),
+    course_id INT NOT NULL,
+    batch_id INT
+);
+
+CREATE TABLE course (
+    course_id INT PRIMARY KEY AUTO_INCREMENT,
+    course_name VARCHAR(100) UNIQUE NOT NULL,
+    course_fee DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE batch (
+    batch_id INT PRIMARY KEY AUTO_INCREMENT,
+    batch_name VARCHAR(100) NOT NULL,
+    batch_photo_url VARCHAR(255),
+    start_date DATE,
+    end_date DATE
+);
+
+CREATE TABLE batch_course (
+    batch_id INT,
+    course_id INT,
+    PRIMARY KEY (batch_id, course_id)
+);
+
+CREATE TABLE recruiter (
+    recruiter_id INT PRIMARY KEY AUTO_INCREMENT,
+    company_name VARCHAR(100) NOT NULL,
+    recruiter_photo_url VARCHAR(255)
+);
+
+CREATE TABLE placement (
+    placement_id INT PRIMARY KEY AUTO_INCREMENT,
+    batch_id INT NOT NULL,
+    course_id INT NOT NULL,
+    recruiter_id INT NOT NULL,
+    placed_students INT
+);
+
+CREATE TABLE payment (
+    payment_id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT UNIQUE NOT NULL,
+    total_amount DECIMAL(10,2) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE payment_installment (
+    installment_id INT PRIMARY KEY AUTO_INCREMENT,
+    payment_id INT NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    paid_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-----------------------------------key point---------------------------------
+logic to enforce 3 installments , autofill payment from cousre fee and recipt genration can we done in java or dotnet
+-----------------------------------key point---------------------------------
+
+-- 1. Get in Touch Table
+CREATE TABLE get_in_touch (
+    contact_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    message TEXT CHECK (CHAR_LENGTH(message) <= 500)
+);
+
+-- 2. Announcement Table
+CREATE TABLE announcement (
+    announcement_id INT PRIMARY KEY AUTO_INCREMENT,
+    announcement_text TEXT NOT NULL
+);
+
+-- 3. Campus Life Table
+CREATE TABLE campus_life (
+    campus_life_id INT PRIMARY KEY AUTO_INCREMENT,
+    photo_url VARCHAR(255) NOT NULL,
+    description TEXT
+);
+
+-- 4. Faculty Table
+CREATE TABLE faculty (
+    faculty_id INT PRIMARY KEY AUTO_INCREMENT,
+    photo_url VARCHAR(255) NOT NULL,
+    faculty_name VARCHAR(100) NOT NULL,
+    teaching_subject VARCHAR(100) NOT NULL
+);
+
+------------------------------------------------
+           foreign key starts here
+------------------------------------------------
+one staff can have only one role 
+staff to staff_role
+one to one relation
+
+ALTER TABLE staff
+ADD CONSTRAINT fk_staff_role
+FOREIGN KEY (staff_role_id)
+REFERENCES staff_role(staff_role_id)
+
+error : ERROR 1830 (HY000): Column 'staff_role_id' cannot be NOT NULL: needed in a foreign key constraint 'fk_staff_role' SET NULL
+
+ALTER TABLE staff
+ADD CONSTRAINT fk_staff_role
+FOREIGN KEY (staff_role_id)
+REFERENCES staff_role(staff_role_id)
+ON DELETE RESTRICT
+ON UPDATE CASCADE;
+
+----------------key point ---------------------------------------
+
+One-to-one: Each staff has exactly one staff_role.
+
+Delete staff anytime without affecting staff_role.
+
+Delete role not allowed if staff still uses it (to prevent accidental orphaning).
+
+That means:
+
+staff_role_id in staff should be NOT NULL.
+
+No ON DELETE SET NULL or ON DELETE CASCADE (because role must stay and deletion should fail if still in use).
+
+Here’s the correct SQL:
+
+ALTER TABLE staff
+ADD CONSTRAINT fk_staff_role
+FOREIGN KEY (staff_role_id)
+REFERENCES staff_role(staff_role_id)
+ON DELETE RESTRICT
+ON UPDATE CASCADE;
+
+Why this works:
+ON DELETE RESTRICT → If you try to delete a role that's assigned to any staff, MySQL will block it.
+
+ON UPDATE CASCADE → If the role ID changes (rare), it auto-updates in staff.
+
+Deleting staff works fine, role stays untouched.
+
+
+----------------key point ---------------------------------------
+
+ALTER TABLE enquiry
+ADD CONSTRAINT fk_enquiry_staff
+FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+ALTER TABLE student
+ADD CONSTRAINT fk_student_enquiry
+FOREIGN KEY (enquiry_id) REFERENCES enquiry(enquiry_id)
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE enquiry
+ADD CONSTRAINT fk_enquiry_closure_reason
+FOREIGN KEY (closure_reason_id) REFERENCES closure_reason(closure_reason_id)
+ON DELETE SET NULL ON UPDATE CASCADE;
+
+ALTER TABLE follow_up
+ADD CONSTRAINT fk_followup_enquiry
+FOREIGN KEY (enquiry_id) REFERENCES enquiry(enquiry_id)
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE payment
+ADD CONSTRAINT fk_payment_student
+FOREIGN KEY (student_id) REFERENCES student(student_id)
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE payment_installment
+ADD CONSTRAINT fk_payment_installment_payment
+FOREIGN KEY (payment_id) REFERENCES payment(payment_id)
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+Staff (1) → Enquiry (many)
+Enquiry (1) → Student (1)
+Enquiry (1) → Follow-up (many)
+Enquiry (1) → Closure Reason (0 or 1)
+Student (1) → Payment (many)
+Payment (1) → Payment Installments (many)
+
+Important Notes
+ON DELETE CASCADE is common (especially for “child” tables like follow_up, payment), but ON UPDATE CASCADE is rare because primary keys rarely change.
+If you don’t want automatic deletes, you can use ON DELETE RESTRICT or ON DELETE SET NULL.
+Cascading can be dangerous if you accidentally delete a parent row — it can wipe out a lot of related data in one go.
+
+
+ALTER TABLE student
+ADD CONSTRAINT fk_student_enquiry
+FOREIGN KEY (enquiry_id) 
+REFERENCES enquiry(enquiry_id) 
+ON DELETE SET NULL;
+
+ALTER TABLE student
+ADD CONSTRAINT fk_student_course
+FOREIGN KEY (course_id) 
+REFERENCES course(course_id) 
+ON DELETE RESTRICT;
+
+ALTER TABLE student
+ADD CONSTRAINT fk_student_batch
+FOREIGN KEY (batch_id) 
+REFERENCES batch(batch_id) 
+ON DELETE SET NULL;
+
+ALTER TABLE batch_course
+ADD CONSTRAINT fk_batchcourse_batch
+FOREIGN KEY (batch_id) 
+REFERENCES batch(batch_id) 
+ON DELETE CASCADE;
+
+ALTER TABLE batch_course
+ADD CONSTRAINT fk_batchcourse_course
+FOREIGN KEY (course_id) 
+REFERENCES course(course_id) 
+ON DELETE CASCADE;
+
+---------------------------------------key points------------------------------------
+ON DELETE SET NULL → Deletes the parent row, sets this column to NULL in child table 
+(column must allow NULL).
+
+ON DELETE RESTRICT → Prevents deletion if there are child rows.
+
+ON DELETE CASCADE → Deletes related child rows automatically.
+
+Every ADD CONSTRAINT must be in its own ALTER TABLE statement, or multiple can be combined inside a single ALTER TABLE block separated by commas — but all still start after ALTER TABLE <table_name>.
+
+
+Table			Column	        References	  On Delete Action
+student			enquiry_id	enquiry		  SET NULL
+student			course_id	course		  RESTRICT
+student			batch_id	batch	          SET NULL
+batch_course		batch_id	batch		  CASCADE
+batch_course		course_id	course		  CASCADE
+---------------------------------------key points------------------------------------
+
+-- 1) Placement table: add foreign keys
+ALTER TABLE placement
+ADD CONSTRAINT fk_placement_batch
+FOREIGN KEY (batch_id) REFERENCES batch(batch_id)
+ON DELETE CASCADE,   -- deleting a batch deletes its placements
+
+ADD CONSTRAINT fk_placement_course
+FOREIGN KEY (course_id) REFERENCES course(course_id)
+ON DELETE RESTRICT,  -- cannot delete course if placement exists
+
+ADD CONSTRAINT fk_placement_recruiter
+FOREIGN KEY (recruiter_id) REFERENCES recruiter(recruiter_id)
+ON DELETE RESTRICT;  -- cannot delete recruiter if placement exists
+
+
+-- 2) Student table: add recruiter reference
+ALTER TABLE student
+ADD recruiter_id INT NULL,  -- allow NULL if student not yet placed
+ADD CONSTRAINT fk_student_recruiter
+FOREIGN KEY (recruiter_id) REFERENCES recruiter(recruiter_id)
+ON DELETE SET NULL; -- if recruiter removed, student link is NULL
+
+ON DELETE CASCADE for batch → placement makes sense because if a batch is gone, its placement records shouldn’t exist.
+
+ON DELETE RESTRICT for course and recruiter in placement avoids accidental deletion of a course or recruiter that has historical placement records.
+
+ON DELETE SET NULL for student → recruiter allows recruiter deletion without deleting students, while keeping student data intact.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CRUD on Important Tabels;
+
+

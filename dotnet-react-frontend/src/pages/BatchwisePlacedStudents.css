@@ -1,0 +1,114 @@
+.placed-students-modern {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+  color: #000; /* default text black */
+}
+
+.placed-students-modern h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #000; /* heading black */
+}
+
+.placement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+/* Glassmorphism Card */
+.placement-card {
+  background: rgba(255, 255, 255, 0.85); /* lighter for contrast */
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(0,0,0,0.1);
+  color: #000; /* card text black */
+}
+
+.placement-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+.student-photo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.placement-card:hover .student-photo {
+  transform: scale(1.1);
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #000; /* student name black */
+}
+
+.company {
+  font-size: 0.95rem;
+  color: #333; /* company name dark grey */
+}
+
+/* Skeleton Loading */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+  animation: loading 1.2s infinite;
+}
+
+@keyframes loading {
+  0% { left: -150px; }
+  100% { left: 100%; }
+}
+
+.img-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.1);
+  margin: 0 auto 15px;
+}
+
+.text-placeholder {
+  height: 20px;
+  margin: 10px auto;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.1);
+}
+
+.text-placeholder.title {
+  width: 60%;
+}
+
+.text-placeholder.company {
+  width: 40%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .placement-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}

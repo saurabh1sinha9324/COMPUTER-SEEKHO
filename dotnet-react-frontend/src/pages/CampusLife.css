@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+.campus-container {
+  font-family: 'Orbitron', sans-serif;
+  min-height: 100vh;
+  padding: 30px;
+  background: linear-gradient(135deg, #1f2a44, #3b4a6b, #2c3e5b);
+  color: #f0f0f0;
+}
+
+/* Heading */
+.campus-container h2 {
+  color: #60e0ca;
+  text-shadow: 0 0 5px #60e0ca, 0 0 10px #4ade80;
+  margin-bottom: 25px;
+}
+
+/* Form */
+.campus-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(96,224,202,0.5);
+  margin-bottom: 30px;
+}
+
+.campus-form input {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(96,224,202,0.5);
+  background: rgba(0,0,0,0.4);
+  color: #60e0ca;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.campus-form input:focus {
+  border-color: #4ade80;
+  box-shadow: 0 0 10px #4ade80, 0 0 20px #60e0ca;
+}
+
+/* Submit button */
+.campus-form button {
+  padding: 12px 20px;
+  background: linear-gradient(90deg, #60e0ca, #4ade80);
+  color: #000;
+  font-weight: 700;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.campus-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #60e0ca, 0 0 25px #4ade80;
+}
+
+/* Cards */
+.campus-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.campus-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  padding: 15px;
+  border-radius: 20px;
+  border: 1px solid rgba(96,224,202,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.campus-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #60e0ca, 0 0 25px #4ade80;
+}
+
+.campus-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.campus-card p {
+  font-size: 0.95rem;
+  color: #070808;
+  margin-bottom: 10px;
+}
+
+/* Card actions */
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.card-actions button {
+  padding: 6px 12px;
+  background: linear-gradient(90deg, #60e0ca, #4ade80);
+  border: none;
+  border-radius: 12px;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-actions button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #60e0ca, 0 0 20px #4ade80;
+}

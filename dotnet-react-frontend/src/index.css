@@ -1,0 +1,61 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif; /* Modern font */
+}
+
+/* Body styling */
+body {
+  background: #f5f7fa; /* light modern background */
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+a:hover {
+  color: #007bff; /* Bootstrap primary color */
+}
+
+/* Buttons */
+button {
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Add smooth transitions for interactive elements */
+*,
+*::before,
+*::after {
+  transition: all 0.3s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f7fa;
+}

@@ -1,0 +1,69 @@
+/* Student.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+.student-confirmation {
+  font-family: 'Orbitron', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background: linear-gradient(135deg, #1f2a44, #3b4a6b, #2c3e5b);
+  color: #f0f0f0;
+}
+
+.confirmation-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  padding: 30px 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(96, 224, 202, 0.3);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(96,224,202,0.4);
+}
+
+.success-msg {
+  color: #60e0ca;
+  text-shadow: 0 0 5px #60e0ca, 0 0 10px #4ade80;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.info p {
+  margin: 8px 0;
+  color: #b0f0e0;
+  text-align: left;
+}
+
+.info strong {
+  color: #60e0ca;
+}
+
+.proceed-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  background: linear-gradient(90deg, #60e0ca, #4ade80);
+  color: #000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.proceed-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #60e0ca, 0 0 20px #4ade80;
+}
+
+.error-message {
+  font-family: 'Orbitron', sans-serif;
+  color: #ff6b6b;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2rem;
+}

@@ -1,0 +1,83 @@
+/* ReceiptPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+.receipt-container {
+  font-family: 'Orbitron', sans-serif;
+  min-height: 100vh;
+  padding: 30px;
+  background: linear-gradient(135deg, #1f2a44, #3b4a6b, #2c3e5b);
+  color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.receipt-container h1 {
+  color: #60e0ca;
+  text-shadow: 0 0 5px #60e0ca, 0 0 10px #4ade80;
+  margin-bottom: 25px;
+}
+
+/* Receipt info box */
+.receipt-info {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(96, 224, 202, 0.3);
+  padding: 25px 30px;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.receipt-info p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #60e0ca;
+}
+
+.receipt-info strong {
+  color: #4ade80;
+}
+
+/* Download button */
+.download-button {
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(90deg, #60e0ca, #4ade80);
+  color: #000;
+  font-size: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.download-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #60e0ca, 0 0 20px #4ade80;
+}
+
+/* Loading/Error message */
+.receipt-container div {
+  font-size: 18px;
+  font-weight: 600;
+  color: #facc15;
+  margin-top: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .receipt-info {
+    padding: 15px 20px;
+  }
+
+  .receipt-info p {
+    font-size: 14px;
+  }
+
+  .download-button {
+    width: 100%;
+    font-size: 14px;
+  }
+}

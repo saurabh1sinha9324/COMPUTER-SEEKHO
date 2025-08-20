@@ -1,0 +1,164 @@
+.courses-container {
+  padding: 40px 20px;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+  min-height: 100vh;
+}
+
+.courses-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #212529;
+  margin-bottom: 40px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.course-card {
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
+  max-width: 360px;
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.course-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.course-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.course-info h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #343a40;
+}
+
+.course-info p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.course-description {
+  font-style: italic;
+  margin-top: 5px;
+  color: #6c757d;
+}
+
+details summary {
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  color: #007bff;
+}
+
+details p {
+  margin-top: 8px;
+  color: #444;
+}
+  
+.course-info {
+  padding: 12px;
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
+}
+
+.course-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.course-details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+}
+
+.course-details-list li {
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.course-details-list span:first-child {
+  width: 110px;
+  font-weight: 600;
+  color: #555;
+}
+
+.status {
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  margin-left: 6px;
+}
+
+.status.active {
+  background-color: #d1f7c4;
+  color: #226622;
+}
+
+.status.inactive {
+  background-color: #ffd6d6;
+  color: #aa0000;
+}
+
+.course-description {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+  font-style: italic;
+  border-left: 3px solid #007bff;
+  padding-left: 10px;
+}
+
+.syllabus-toggle summary {
+  margin-top: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0056b3;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.syllabus-toggle summary:hover {
+  color: #003d80;
+}
+
+.syllabus-content {
+  margin-top: 6px;
+  font-size: 0.88rem;
+  background-color: #f1f5fb;
+  padding: 10px;
+  border-left: 4px solid #007bff;
+  border-radius: 6px;
+  line-height: 1.5;
+  color: #444;
+}

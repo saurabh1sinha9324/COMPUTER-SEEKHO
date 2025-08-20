@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+/* Header container */
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 50px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+/* Logo */
+.header-left {
+  position: absolute;
+  left: 30px;
+}
+
+.header-left .logo {
+  height: 120px; /* increased from 90px */
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.header-left .logo:hover {
+  transform: scale(1.05);
+}
+
+/* Center text */
+.header-center h1.animated-text {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  background: linear-gradient(90deg, #ff6f61, #ff3b2e, #6a11cb, #2575fc);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 5s ease infinite, textSlide 2s ease forwards;
+  letter-spacing: 1px;
+  z-index: 5;
+}
+
+/* Gradient animation */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Slide in animation */
+@keyframes textSlide {
+  0% { transform: translateY(-20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Floating icons */
+.floating-icon {
+  position: absolute;
+  color: #6a11cb;
+  font-size: 2rem;
+  animation: floatIcons 6s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+/* Different positions and delays */
+.icon1 { top: 10%; left: 10%; animation-delay: 0s; }
+.icon2 { top: 15%; right: 12%; animation-delay: 1s; }
+.icon3 { bottom: 10%; left: 15%; animation-delay: 2s; }
+.icon4 { bottom: 12%; right: 15%; animation-delay: 3s; }
+
+/* Floating effect */
+@keyframes floatIcons {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(15deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    padding: 25px 20px;
+  }
+
+  .header-center h1.animated-text {
+    font-size: 1.8rem;
+  }
+
+  .floating-icon {
+    font-size: 1.5rem;
+  }
+
+  .header-left .logo {
+    height: 70px;
+  }
+}

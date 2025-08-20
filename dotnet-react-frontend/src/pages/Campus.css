@@ -1,0 +1,102 @@
+.campus-container-modern {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+.campus-title {
+  text-align: center;
+  font-size: 2.7rem;
+  margin-bottom: 50px;
+  font-weight: 700;
+  color: #000;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.campus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+/* Glassmorphism Card */
+.campus-card {
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(0,0,0,0.15);
+  color: #000;
+}
+
+.campus-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+.campus-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.campus-card:hover .campus-image {
+  transform: scale(1.05);
+}
+
+.campus-description {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  text-align: justify;
+}
+
+/* Skeleton Loading */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+  animation: loading 1.2s infinite;
+}
+
+@keyframes loading {
+  0% { left: -150px; }
+  100% { left: 100%; }
+}
+
+.campus-image-placeholder {
+  width: 100%;
+  height: 180px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.campus-description-placeholder {
+  height: 60px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .campus-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}

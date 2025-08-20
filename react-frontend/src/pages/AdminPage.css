@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: #222;
+}
+
+.admin-container {
+  padding: 40px;
+  min-height: 100vh;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffffee;
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.admin-info h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2d3436;
+}
+
+.admin-info span {
+  color: #0984e3;
+}
+
+.admin-info p,
+.admin-info small {
+  font-size: 14px;
+  color: #555;
+}
+
+.staff-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #00cec9;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(0, 206, 201, 0.6);
+}
+
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.btn {
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, #6c5ce7, #00b894);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  background: #fff;
+  color: #00b894;
+  border: 2px solid #00b894;
+}
+
+.sub-heading {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2d3436;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  background: #ffffffee;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.followup-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  color: #2d3436;
+}
+
+.followup-table th {
+  background-color: #dfe6e9;
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 700;
+  color: #2d3436;
+}
+
+.followup-table td {
+  padding: 12px 20px;
+  border-bottom: 1px solid #dcdde1;
+}
+
+.followup-table tbody tr:hover {
+  background-color: #f1f2f6;
+  transition: background 0.3s;
+}
+
+.followup-table td button {
+  padding: 8px 14px;
+  font-weight: 600;
+  border-radius: 25px;
+  border: none;
+  background: #00cec9;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.followup-table td button:hover {
+  background: #00b894;
+}
+
+@media (max-width: 768px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .admin-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .followup-table th,
+  .followup-table td {
+    font-size: 14px;
+  }
+}

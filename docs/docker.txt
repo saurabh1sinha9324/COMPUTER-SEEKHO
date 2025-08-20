@@ -1,0 +1,18 @@
+$env:JAVA_HOME = "C:\Users\yashn\.jdks\ms-21.0.7"; 
+$env:Path = "$env:JAVA_HOME\bin;$env:Path"; 
+
+cd "D:\CDAC_Assignments\CDAC_Testing\test9\ComputerSeekho-DotCom\java-backend"; 
+
+mvn clean package -DskipTests
+
+cd target
+
+& "C:\Users\yashn\.jdks\ms-21.0.7\bin\java.exe" -jar api-0.0.1-SNAPSHOT.jar
+
+docker-compose build --no-cache
+docker-compose up
+
+docker-compose down -v --remove-orphans
+docker-compose up --build --force-recreate
+
+docker-compose down -v

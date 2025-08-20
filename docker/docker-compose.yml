@@ -1,0 +1,45 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: computerseekhodotcom
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql 
+    networks:
+      - app_net
+
+  backend:
+    build:
+      context: ../java-backend
+    container_name: spring_backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/computerseekhodotcom
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    networks:
+      - app_net
+
+  frontend:
+    build:
+      context: ../react-frontend
+    container_name: frontend_ui
+    ports:
+      - "5173:80"  # Host:Container
+    networks:
+      - app_net
+
+volumes:
+  db_data:
+
+networks:
+  app_net:
+    driver: bridge

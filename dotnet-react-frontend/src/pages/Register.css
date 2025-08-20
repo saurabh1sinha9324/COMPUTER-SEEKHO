@@ -1,0 +1,106 @@
+/* Register.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+.register-container {
+  font-family: 'Orbitron', sans-serif;
+  min-height: 100vh;
+  padding: 30px;
+  background: linear-gradient(135deg, #1f2a44, #3b4a6b, #2c3e5b);
+  color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-container h2 {
+  color: #60e0ca;
+  text-shadow: 0 0 5px #60e0ca, 0 0 10px #4ade80;
+  margin-bottom: 25px;
+}
+
+/* Form styling */
+.register-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  width: 100%;
+  max-width: 900px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(96, 224, 202, 0.3);
+}
+
+.register-form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form small {
+  margin-bottom: 5px;
+  color: #60e0ca;
+  font-weight: 600;
+}
+
+.register-form input,
+.register-form select {
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(96, 224, 202, 0.5);
+  background: rgba(0, 0, 0, 0.4);
+  color: #60e0ca;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.register-form input:focus,
+.register-form select:focus {
+  border-color: #4ade80;
+  box-shadow: 0 0 10px #4ade80, 0 0 20px #60e0ca;
+}
+
+/* Checkbox */
+.register-form input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #4ade80;
+}
+
+/* Full-width button */
+.register-form .full-width {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.register-form button {
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(90deg, #60e0ca, #4ade80);
+  color: #000;
+  font-size: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.register-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #60e0ca, 0 0 20px #4ade80;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .register-form {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .register-form button {
+    width: 100%;
+  }
+}

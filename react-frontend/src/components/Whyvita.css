@@ -1,0 +1,73 @@
+/* Whyvita.css */
+
+.why-vita {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #f0f4ff, #e0e7ff);
+  border-radius: 30px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+.why-vita-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+}
+
+.why-vita-image img:hover {
+  transform: scale(1.05);
+}
+
+.why-vita-content h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.why-vita-content span {
+  color: #ff3c3c;
+}
+
+.why-vita-content p {
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.why-vita-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.why-vita-content li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .why-vita {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+  }
+
+  .why-vita-content h1 {
+    font-size: 2rem;
+  }
+
+  .why-vita-content p,
+  .why-vita-content ul {
+    font-size: 1rem;
+  }
+}
