@@ -15,12 +15,14 @@ const PaymentPage = () => {
   const { studentId } = useParams();
   const navigate = useNavigate();
   const [payments, setPayments] = useState([]);
+  const [dueAmount, setDueAmount] = useState(null); // 👈 state for due amount
   const [formData, setFormData] = useState({
     amount: '',
     payment_date: new Date().toISOString().split('T')[0],
     payment_type: ''
   });
 
+  // fetch payments history
   const fetchPayments = async () => {
     try {
       const response = await fetch(`http://localhost:8080/api/payments/student/${studentId}`);
@@ -31,9 +33,21 @@ const PaymentPage = () => {
     }
   };
 
+  // fetch student info (to get due amount)
+  const fetchStudent = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/student/${studentId}`);
+      const data = await response.json();
+      setDueAmount(data.paymentDue); // 👈 store due amount
+    } catch (error) {
+      console.error('Error fetching student:', error);
+    }
+  };
+
   useEffect(() => {
     if (studentId) {
       fetchPayments();
+      fetchStudent(); // 👈 also fetch student info
     }
   }, [studentId]);
 
@@ -66,6 +80,7 @@ const PaymentPage = () => {
           payment_type: ''
         });
         fetchPayments();
+        fetchStudent(); // 👈 refresh due amount
       } else {
         alert('Failed to create payment.');
       }
@@ -83,6 +98,12 @@ const PaymentPage = () => {
   return (
     <div className="payment-container">
       <h2>Create Payment for Student ID: {studentId}</h2>
+
+      {/* 👇 show due amount */}
+      {dueAmount !== null && (
+        <h3 className="due-amount">Due Amount: ₹{dueAmount.toLocaleString()}</h3>
+      )}
+
       <form onSubmit={handleSubmit} className="payment-form">
         <input
           type="number"
