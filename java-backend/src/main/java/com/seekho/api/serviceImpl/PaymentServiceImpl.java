@@ -35,7 +35,7 @@ public class PaymentServiceImpl implements PaymentService {
         // Map DTO to Entity (mapper already sets receipt)
         Payment payment = PaymentMapper.toPayment(paymentDTO, student);
 
-        // ✅ Reduce student payment due
+        //  Reduce student payment due
         double currentDue = student.getPaymentDue();
         double amountPaid = payment.getAmount();
 

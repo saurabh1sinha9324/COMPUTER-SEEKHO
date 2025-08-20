@@ -20,8 +20,8 @@ public class ReceiptMapper {
             dto.setPayment_id(payment.getPayment_id());
             dto.setPayment_date(payment.getPayment_date());
             dto.setAmount(payment.getAmount());
-            dto.setPayment_type(payment.getPayment_type().getPayment_type_id()); // Assuming PaymentType is an object
-            dto.setStudent_id(payment.getStudent().getStudentId()); // Assuming Student is an object
+            dto.setPayment_type(payment.getPayment_type().getPayment_type_id()); 
+            dto.setStudent_id(payment.getStudent().getStudentId());
 
         }
 

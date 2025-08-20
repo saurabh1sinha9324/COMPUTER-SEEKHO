@@ -47,7 +47,6 @@ public class PaymentTypeMaster {
 
     private String payment_type_desc;
 
-    // Getters and Setters
     public int getPayment_type_id() {
         return payment_type_id;
     }
