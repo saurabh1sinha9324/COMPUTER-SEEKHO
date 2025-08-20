@@ -2,10 +2,11 @@
   max-width: 1200px;
   margin: 40px auto;
   padding: 30px;
-  background: #f9fafc;
+  background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   font-family: 'Segoe UI', sans-serif;
+  color: black;   /* ✅ All text inside will be black */
 }
 
 .title, .subtitle {
