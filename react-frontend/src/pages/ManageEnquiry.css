@@ -1,0 +1,153 @@
+.enquiry-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #f9fafc;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.title, .subtitle {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 220px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.search-bar button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+  background-color: #2980b9;
+}
+
+.enquiry-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
+  margin-bottom: 40px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.enquiry-form input,
+.enquiry-form select,
+.enquiry-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.enquiry-form label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.enquiry-form button {
+  grid-column: span 2;
+  padding: 12px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.enquiry-form button:hover {
+  background: #219150;
+}
+
+.enquiry-form button[type="button"] {
+  background: #e74c3c;
+}
+
+.enquiry-form button[type="button"]:hover {
+  background: #c0392b;
+}
+
+.enquiry-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.enquiry-table thead {
+  background-color: #3498db;
+  color: white;
+}
+
+.enquiry-table th,
+.enquiry-table td {
+  padding: 12px 14px;
+  text-align: center;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.enquiry-table tbody tr:hover {
+  background-color: #f2f9ff;
+}
+
+.enquiry-table button {
+  margin: 0 3px;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.register-btn {
+  background: #2ecc71;
+  color: white;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+}
+
+.close-btn {
+  background: #f39c12;
+  color: white;
+}
+
+.enquiry-table button:hover {
+  transform: scale(1.05);
+}

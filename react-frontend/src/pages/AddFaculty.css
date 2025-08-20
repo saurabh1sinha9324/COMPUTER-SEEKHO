@@ -1,0 +1,128 @@
+.faculty-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f7f9fc;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.faculty-form {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+}
+
+.faculty-form input[type="text"],
+.faculty-form input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.faculty-form label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.faculty-form button {
+  grid-column: span 2;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.faculty-form button:hover {
+  background-color: #0056b3;
+}
+
+.faculty-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.faculty-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.faculty-card:hover {
+  transform: translateY(-5px);
+}
+
+.faculty-photo img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.faculty-info {
+  padding: 15px;
+}
+
+.faculty-info h3 {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.faculty-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.faculty-actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0 15px;
+}
+
+.faculty-actions button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.3s ease;
+}
+
+.faculty-actions button:first-child {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.faculty-actions button:first-child:hover {
+  background-color: #e0a800;
+}
+
+.faculty-actions button:last-child {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.faculty-actions button:last-child:hover {
+  background-color: #c82333;
+}

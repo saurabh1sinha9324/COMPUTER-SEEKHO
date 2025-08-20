@@ -1,0 +1,151 @@
+/* AddBatchPlacement.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+.add-placement-container {
+  font-family: 'Orbitron', sans-serif;
+  padding: 30px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1f2a44, #3b4a6b);
+  color: #f0f0f0;
+}
+
+.form-heading {
+  color: #60e0ca;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px #60e0ca, 0 0 10px #4ade80;
+}
+
+.add-placement-form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 1px solid rgba(96,224,202,0.3);
+  box-shadow: 0 0 15px rgba(96,224,202,0.4);
+}
+
+.add-placement-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.add-placement-form input,
+.add-placement-form select {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: #f0f0f0;
+}
+
+.add-placement-form input::placeholder {
+  color: #b0f0e0;
+}
+
+.add-placement-form .note {
+  font-size: 0.8rem;
+  color: #b0f0e0;
+}
+
+.submit-btn {
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 700;
+  background: linear-gradient(90deg, #60e0ca, #4ade80);
+  color: #000;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #60e0ca, 0 0 20px #4ade80;
+}
+
+.placement-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.placement-table th,
+.placement-table td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.placement-table th {
+  background: rgba(96,224,202,0.2);
+  color: #60e0ca;
+}
+
+.placement-table td img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(96,224,202,0.5);
+}
+
+.update-btn,
+.delete-btn,
+.students-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin: 2px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.update-btn {
+  background: linear-gradient(90deg, #60e0ca, #4ade80);
+  color: #000;
+}
+
+.update-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #60e0ca, 0 0 15px #4ade80;
+}
+
+.delete-btn {
+  background: linear-gradient(90deg, #ff6b6b, #ff3c3c);
+  color: #000;
+}
+
+.delete-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ff6b6b, 0 0 15px #ff3c3c;
+}
+
+.students-btn {
+  background: linear-gradient(90deg, #ffa500, #ffda6b);
+  color: #000;
+}
+
+.students-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffa500, 0 0 15px #ffda6b;
+}
+
+@media screen and (max-width: 768px) {
+  .add-placement-form {
+    max-width: 100%;
+  }
+
+  .placement-table th, .placement-table td {
+    font-size: 0.9rem;
+  }
+}

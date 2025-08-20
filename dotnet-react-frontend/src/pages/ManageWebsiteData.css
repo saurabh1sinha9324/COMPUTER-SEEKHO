@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+.manage-data {
+  font-family: 'Orbitron', sans-serif;
+  min-height: 100vh;
+  padding: 30px;
+  background: linear-gradient(135deg, #1f2a44, #3b4a6b, #2c3e5b);
+  color: #f0f0f0;
+}
+
+/* Page Title */
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #60e0ca;
+  text-shadow: 0 0 5px #60e0ca, 0 0 10px #4ade80;
+}
+
+/* Button Grid */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Section Buttons */
+.section-button {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(96,224,202,0.5);
+  color: #f0f0f0;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.section-button i {
+  font-size: 20px;
+}
+
+/* Hover effect */
+.section-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(96,224,202,0.5), 0 0 20px #4ade80;
+}

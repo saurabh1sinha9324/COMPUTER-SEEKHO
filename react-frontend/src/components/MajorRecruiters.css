@@ -1,0 +1,95 @@
+/* MajorRecruiters.css */
+
+.recruiters-section {
+  padding: 60px 40px;
+  background: linear-gradient(to right, #f0f4f8, #ffffff);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.recruiters-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #1a1a1a;
+  position: relative;
+}
+
+.recruiters-title::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background: #007bff;
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 10px;
+}
+
+.recruiters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 30px;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 40px;
+}
+
+.recruiter-logo {
+  background: #ffffffcc;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 140px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recruiter-logo img {
+  max-width: 100%;
+  max-height: 60px;
+  object-fit: contain;
+}
+
+.recruiter-logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* See More Button */
+.see-more-btn {
+  padding: 12px 28px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.see-more-btn:hover {
+  background-color: #0056b3;
+  color: yellow; /* Text turns yellow on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .recruiters-section {
+    padding: 40px 20px;
+  }
+
+  .recruiters-title {
+    font-size: 2rem;
+  }
+
+  .see-more-btn {
+    font-size: 0.95rem;
+    padding: 10px 24px;
+  }
+}

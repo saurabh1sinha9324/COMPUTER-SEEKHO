@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(0,0,0,0.3); /* glass effect */
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+/* Shadow effect when scrolled */
+.navbar.scrolled {
+  background: rgba(147, 144, 144, 0.7);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* Logo */
+.nav-logo {
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: white;
+  text-shadow: 0 0 8px #fff, 0 0 15px #0ff, 0 0 20px #f0f, 0 0 30px #ff0;
+  cursor: pointer;
+}
+
+/* Links container */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  transition: all 0.3s ease;
+}
+
+/* Neon gradient text links */
+.nav-link {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  background: black;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Hover neon glow */
+.nav-link:hover {
+  text-shadow: 0 0 10px #ff00ff, 0 0 15px #00ffff, 0 0 20px #ffea00, 0 0 25px #ff4500;
+  transform: scale(1.05);
+}
+
+/* Active link glow */
+.nav-link.active {
+  text-shadow: 0 0 15px #ff00ff, 0 0 20px #00ffff, 0 0 25px #ffea00;
+  transform: scale(1.03);
+}
+
+/* Highlighted Admin link */
+.nav-link.admin {
+  background: rgb(255, 0, 0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgb(7, 7, 7);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 1200;
+  text-shadow: 0 0 8px #00ff40, 0 0 12px #ff4b2b;
+}
+
+.nav-link.admin:hover {
+  text-shadow: 0 0 12px #ff003c, 0 0 18px #ff4b2b;
+  transform: scale(1.5);
+}
+
+/* Mobile toggle button */
+.nav-toggle {
+  display: none;
+  font-size: 1.6rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive mobile menu */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(215, 200, 200, 0.3);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-radius: 0 0 15px 15px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}

@@ -1,0 +1,118 @@
+/* RegisteredStudent.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+.admin-container {
+  font-family: 'Orbitron', sans-serif;
+  min-height: 100vh;
+  padding: 30px;
+  background: linear-gradient(135deg, #1f2a44, #3b4a6b, #2c3e5b);
+  color: #f0f0f0;
+}
+
+.admin-header h1 {
+  color: #60e0ca;
+  font-size: 2.2rem;
+  text-shadow: 0 0 5px #60e0ca, 0 0 10px #4ade80;
+  margin-bottom: 5px;
+}
+
+.admin-header p {
+  color: #b0f0e0;
+  margin-bottom: 20px;
+}
+
+.sub-heading {
+  color: #60e0ca;
+  text-shadow: 0 0 5px #60e0ca, 0 0 10px #4ade80;
+  margin-bottom: 15px;
+}
+
+/* Table wrapper */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.followup-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.followup-table th,
+.followup-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(96, 224, 202, 0.3);
+  color: #f0f0f0;
+}
+
+.followup-table th {
+  background: rgba(96, 224, 202, 0.1);
+  color: #60e0ca;
+}
+
+.followup-table tr:hover {
+  background: rgba(96, 224, 202, 0.1);
+}
+
+/* Student photo */
+.student-table-photo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #60e0ca;
+}
+
+/* Action button */
+.followup-table button {
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: linear-gradient(90deg, #60e0ca, #4ade80);
+  color: #000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.followup-table button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #60e0ca, 0 0 20px #4ade80;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .followup-table thead {
+    display: none;
+  }
+
+  .followup-table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(96, 224, 202, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .followup-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid rgba(96, 224, 202, 0.2);
+  }
+
+  .followup-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #60e0ca;
+  }
+
+  .student-table-photo {
+    margin-right: 10px;
+  }
+}

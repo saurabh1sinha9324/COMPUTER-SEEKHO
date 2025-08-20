@@ -1,0 +1,98 @@
+.batchwise-placement {
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa, #e4ecf1);
+  min-height: 100vh;
+  text-align: center;
+}
+
+.batchwise-placement h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #003366;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.placement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.placement-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  padding-bottom: 1rem;
+}
+
+.placement-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.placement-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.placement-card .title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+  margin: 1rem 0 0.3rem;
+}
+
+.placement-card .percent {
+  font-size: 1rem;
+  color: #008000;
+  font-weight: 500;
+}
+
+/* Skeleton Loading Styles */
+.skeleton {
+  opacity: 0.6;
+  background-color: #e0e0e0;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-img {
+  width: 100%;
+  height: 150px;
+  background-color: #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.skeleton-text {
+  height: 16px;
+  background-color: #ccc;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+
+.skeleton-text.title {
+  width: 60%;
+}
+
+.skeleton-text.percent {
+  width: 40%;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #d0d0d0;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}

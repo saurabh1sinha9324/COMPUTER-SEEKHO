@@ -1,0 +1,66 @@
+.why-vita {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+}
+
+.why-vita-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.why-vita-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.why-vita-image img:hover {
+  transform: scale(1.05);
+}
+
+.why-vita-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.why-vita-content .title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.why-vita-content .title span {
+  color: #007bff; /* accent color */
+}
+
+.why-vita-content .description {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.why-vita-content .features-list {
+  list-style: none;
+  padding: 0;
+}
+
+.why-vita-content .features-list li {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 25px;
+}
+
+.why-vita-content .features-list li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #007bff;
+}

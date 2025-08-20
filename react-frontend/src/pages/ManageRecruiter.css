@@ -1,0 +1,132 @@
+/* ManageRecruiter.css */
+
+.manage-recruiter-container {
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  min-height: 100vh;
+}
+
+h2,
+h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.recruiter-form {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.recruiter-form input {
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.recruiter-form input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.recruiter-form button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.9rem;
+  border: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.recruiter-form button:hover {
+  background-color: #0056b3;
+}
+
+.recruiter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.recruiter-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.recruiter-card:hover {
+  transform: translateY(-5px);
+}
+
+.recruiter-photo {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.recruiter-card h4 {
+  margin: 0.5rem 0 0.2rem;
+  color: #222;
+  font-weight: 600;
+}
+
+.recruiter-card p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.card-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-actions button:hover {
+  opacity: 0.9;
+}
+
+.card-actions button:first-child {
+  background-color: #28a745;
+  color: white;
+}
+
+.card-actions .delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.no-data {
+  text-align: center;
+  color: #888;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+}

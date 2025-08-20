@@ -1,0 +1,121 @@
+/* Container */
+.courses-container {
+  padding: 50px 30px;
+  background: linear-gradient(to right, #f8faff, #eef3f8);
+  color: #333;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
+/* Heading */
+.courses-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+  position: relative;
+}
+
+.courses-heading::after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: #007bff;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 10px;
+}
+
+/* Scroll Wrapper */
+.courses-scroll-wrapper {
+  display: flex;
+  overflow-x: auto;
+  padding: 16px 0;
+  gap: 20px;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #cccccc transparent;
+}
+
+.courses-scroll-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.courses-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 6px;
+}
+
+.courses-scroll-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Course Card */
+.course-card {
+  flex: 0 0 auto;
+  width: 240px;
+  background: #ffffffcc;
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
+}
+
+.course-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Course Image */
+.course-image {
+  width: 100%;
+  height: 130px; /* Reduced height */
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover .course-image {
+  transform: scale(1.04);
+}
+
+/* Course Info */
+.course-info {
+  padding: 12px;
+  text-align: left;
+}
+
+.course-info h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: #222;
+  font-weight: 600;
+}
+
+.course-info p {
+  margin: 2px 0;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .courses-container {
+    padding: 30px 15px;
+  }
+
+  .courses-heading {
+    font-size: 2rem;
+  }
+
+  .course-card {
+    width: 85%;
+    margin: 0 auto;
+  }
+}

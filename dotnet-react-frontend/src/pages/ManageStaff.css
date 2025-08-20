@@ -1,0 +1,178 @@
+/* ManageStaff.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Container styling */
+.manage-staff-container {
+  font-family: 'Orbitron', sans-serif;
+  min-height: 100vh;
+  padding: 30px;
+  background: linear-gradient(135deg, #1f2a44, #3b4a6b, #2c3e5b);
+  color: #f0f0f0;
+  border-radius: 12px;
+}
+
+/* Page titles */
+.manage-staff-container h2 {
+  color: #60e0ca;
+  text-shadow: 0 0 5px #60e0ca, 0 0 10px #4ade80;
+  margin-bottom: 20px;
+}
+
+/* Form styling */
+.staff-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(96, 224, 202, 0.3);
+}
+
+.staff-form input,
+.staff-form select,
+.staff-form textarea {
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(96, 224, 202, 0.5);
+  background: rgba(0, 0, 0, 0.4);
+  color: #60e0ca;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.staff-form input:focus,
+.staff-form select:focus,
+.staff-form textarea:focus {
+  border-color: #4ade80;
+  box-shadow: 0 0 10px #4ade80, 0 0 20px #60e0ca;
+}
+
+/* Form buttons */
+.staff-form button {
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(90deg, #60e0ca, #4ade80);
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.staff-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #60e0ca, 0 0 20px #4ade80;
+}
+
+.cancel-btn {
+  background: #ff6b6b;
+}
+
+.cancel-btn:hover {
+  background: #a71d2a;
+}
+
+/* Table styling */
+.staff-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.staff-table th,
+.staff-table td {
+  padding: 12px 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(96, 224, 202, 0.3);
+}
+
+.staff-table th {
+  background: rgba(96, 224, 202, 0.1);
+  color: #60e0ca;
+}
+
+.staff-table tr:hover {
+  background: rgba(96, 224, 202, 0.1);
+}
+
+.staff-table img.staff-photo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+/* Action buttons */
+.staff-table button {
+  padding: 5px 8px;
+  margin: 0 2px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.staff-table .delete-btn {
+  background: #ff6b6b;
+  color: #000;
+}
+
+.staff-table button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 5px #60e0ca, 0 0 10px #4ade80;
+}
+
+.staff-table button:first-child {
+  background: #60e0ca;
+  color: #000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .staff-form {
+    grid-template-columns: 1fr;
+  }
+
+  .staff-table thead {
+    display: none;
+  }
+
+  .staff-table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(96, 224, 202, 0.3);
+    border-radius: 8px;
+    padding: 0.5rem;
+  }
+
+  .staff-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid rgba(96, 224, 202, 0.3);
+  }
+
+  .staff-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+  }
+
+  .staff-table img.staff-photo {
+    margin-right: 0.5rem;
+  }
+}

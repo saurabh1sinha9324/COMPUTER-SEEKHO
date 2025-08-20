@@ -1,0 +1,113 @@
+.manage-staff-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  font-family: "Segoe UI", sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+}
+
+.staff-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.staff-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.staff-form button {
+  padding: 12px;
+  grid-column: span 2;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.staff-form button:hover {
+  background: #219150;
+}
+
+.cancel-btn {
+  background-color: #e74c3c !important;
+}
+
+.staff-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #dbdbdb;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.staff-table thead {
+  background-color: #3498db;
+  color: rgb(15, 13, 13);
+}
+
+.staff-table th,
+.staff-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #4d4c4d;
+  color: rgb(15, 13, 13);
+}
+
+.staff-table tbody tr:hover {
+  background-color: #c6c5c5;
+}
+
+.staff-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.staff-table button {
+  margin: 0 4px;
+  padding: 6px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.staff-table button:hover {
+  transform: scale(1.05);
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.staff-table button:not(.delete-btn) {
+  background-color: #2980b9;
+  color: white;
+}
